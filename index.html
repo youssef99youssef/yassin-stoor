@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجرك - حذاء كاجوال مريح</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Cairo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .btn-theme { background-color: #9c774b; color: white; }
+    .btn-theme:hover { background-color: #84633b; }
+    .border-theme { border-color: #9c774b; }
+    .text-theme { color: #9c774b; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Top Bar / Logo -->
+  <header class="bg-white border-b py-3 text-center shadow-sm sticky top-0 z-50">
+    <h1 class="font-extrabold text-xl tracking-wider uppercase text-gray-700">STORENAME</h1>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto p-4 md:py-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-4 md:p-6 rounded-2xl shadow-sm">
+      
+      <!-- معرض الصور (المنتج) -->
+      <div>
+        <div class="relative overflow-hidden rounded-xl border border-gray-100 mb-3">
+          <img id="main-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop" 
+               alt="صورة الحذاء" class="w-full h-80 md:h-96 object-cover transition-all duration-300">
+        </div>
+        <!-- مصغرات الصور -->
+        <div class="flex gap-2 justify-center">
+          <img onclick="changeImage(this.src)" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150" class="w-16 h-16 object-cover rounded-lg border-2 border-theme cursor-pointer">
+          <img onclick="changeImage(this.src)" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=150" class="w-16 h-16 object-cover rounded-lg border border-gray-200 cursor-pointer">
+          <img onclick="changeImage(this.src)" src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=150" class="w-16 h-16 object-cover rounded-lg border border-gray-200 cursor-pointer">
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-3 font-semibold">Semelle EVA souple - نعل مريح ومرن</p>
+      </div>
+
+      <!-- تفاصيل المنتج ونموذج الطلب -->
+      <div class="flex flex-col">
+        <!-- العنوان والشعار -->
+        <div class="bg-[#9c774b] text-white text-center py-2 rounded-t-lg font-bold text-sm">اشتري الآن</div>
+        <h2 class="text-xl md:text-2xl font-black text-gray-900 mt-2 mb-4 text-center md:text-right">
+          خطوتك الأنيقة تبدأ براحة لا تُقاوم
+        </h2>
+
+        <!-- عروض الكمية (Bundles) -->
+        <div class="grid grid-cols-2 gap-3 mb-5">
+          <!-- باقة 1 -->
+          <div onclick="selectOffer(1, 199)" id="offer-1" class="border-2 border-theme bg-orange-50/20 rounded-xl p-3 text-center cursor-pointer relative">
+            <span class="absolute -top-3 right-3 bg-red-600 text-white text-[11px] px-2 py-0.5 rounded-full font-bold">-26%</span>
+            <span class="absolute -top-3 left-3 bg-gray-800 text-white text-[11px] px-2 py-0.5 rounded-full">وفر 70 د.م</span>
+            <div class="font-bold text-sm mt-1">اطلب 1</div>
+            <div class="text-lg font-extrabold text-theme mt-1">199.00 <span class="text-xs">د.م</span></div>
+            <div class="text-xs text-gray-400 line-through">269.00 د.م</div>
+          </div>
+
+          <!-- باقة 2 -->
+          <div onclick="selectOffer(2, 349)" id="offer-2" class="border border-gray-200 rounded-xl p-3 text-center cursor-pointer relative hover:border-gray-400">
+            <span class="absolute -top-3 right-3 bg-black text-white text-[11px] px-2 py-0.5 rounded-full font-bold">الأكثر طلباً</span>
+            <div class="font-bold text-sm mt-1">خديتي 2 رابح 209 درهم</div>
+            <div class="text-lg font-extrabold text-theme mt-1">349.00 <span class="text-xs">د.م</span></div>
+            <div class="text-xs text-gray-400 line-through">538.00 د.م</div>
+          </div>
+        </div>
+
+        <!-- اختيار المقاس -->
+        <div class="mb-4">
+          <label class="block text-xs font-bold text-gray-700 mb-2">اختر المقاس الذي يناسبك:</label>
+          <div class="flex gap-2 flex-wrap">
+            <button type="button" onclick="selectSize(this)" class="size-btn border-2 border-theme text-theme px-3 py-1.5 rounded-lg text-sm font-bold">40</button>
+            <button type="button" onclick="selectSize(this)" class="size-btn border border-gray-200 px-3 py-1.5 rounded-lg text-sm font-bold">41</button>
+            <button type="button" onclick="selectSize(this)" class="size-btn border border-gray-200 px-3 py-1.5 rounded-lg text-sm font-bold">42</button>
+            <button type="button" onclick="selectSize(this)" class="size-btn border border-gray-200 px-3 py-1.5 rounded-lg text-sm font-bold">43</button>
+            <button type="button" onclick="selectSize(this)" class="size-btn border border-gray-200 px-3 py-1.5 rounded-lg text-sm font-bold">44</button>
+            <button type="button" onclick="selectSize(this)" class="size-btn border border-gray-200 px-3 py-1.5 rounded-lg text-sm font-bold">45</button>
+          </div>
+        </div>
+
+        <!-- استمارة الطلب السريع (COD) -->
+        <form id="orderForm" onsubmit="handleOrder(event)" class="space-y-3">
+          <div>
+            <label class="block text-xs font-semibold mb-1 text-gray-600">الاسم الكامل <span class="text-red-500">*</span></label>
+            <input type="text" id="name" required placeholder="أدخل اسمك" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none focus:border-[#9c774b]">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold mb-1 text-gray-600">رقم الهاتف <span class="text-red-500">*</span></label>
+            <input type="tel" id="phone" required placeholder="06XXXXXXXX" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none focus:border-[#9c774b] text-left" dir="ltr">
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-gray-600">المدينة <span class="text-red-500">*</span></label>
+              <input type="text" id="city" required placeholder="مدينتك" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none focus:border-[#9c774b]">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-gray-600">العنوان <span class="text-red-500">*</span></label>
+              <input type="text" id="address" required placeholder="عنوان التوصيل" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none focus:border-[#9c774b]">
+            </div>
+          </div>
+
+          <!-- زر الإرسال -->
+          <button type="submit" class="w-full btn-theme py-3.5 rounded-lg font-bold text-base shadow-md active:scale-[0.99] transition-all">
+            اضغط لإرسال طلبك
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- قسم آراء وتقييمات العملاء (صور حقيقية) -->
+    <section class="mt-12 text-center">
+      <div class="inline-block bg-gray-200/70 text-gray-800 font-extrabold text-xl md:text-2xl px-6 py-2 rounded-2xl mb-6">
+        شكراً جزيلاً على ثقتكم فينا 🙏😍
+      </div>
+
+      <!-- شبكة صور التقييمات -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm border border-gray-100">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm border border-gray-100">
+        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400" class="w-full h-48 md:h-64 object-cover rounded-xl shadow-sm border border-gray-100">
+      </div>
+
+      <div class="mt-6">
+        <a href="#orderForm" class="inline-block w-full max-w-md btn-theme py-3 rounded-lg font-bold">اشتري الآن</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- الفوتر -->
+  <footer class="bg-white border-t mt-12 py-8 text-xs text-gray-500">
+    <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-right">
+      <div>
+        <h4 class="font-bold text-gray-800 mb-2">خدمة العملاء</h4>
+        <p>الدار البيضاء، المغرب</p>
+        <p>contact@yourstore.com</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-800 mb-2">الشروط والسياسات</h4>
+        <p><a href="#" class="hover:underline">سياسة الخصوصية</a></p>
+        <p><a href="#" class="hover:underline">سياسة الاستبدال والاسترجاع</a></p>
+        <p><a href="#" class="hover:underline">شروط الخدمة</a></p>
+      </div>
+      <div class="text-center md:text-left flex flex-col justify-center items-center md:items-end">
+        <span class="font-bold text-gray-800 text-sm mb-1">STORENAME</span>
+        <p>© 2024 جميع الحقوق محفوظة</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- تفاعل الصفحة (JavaScript) -->
+  <script>
+    let selectedQty = 1;
+    let selectedPrice = 199;
+    let selectedSizeValue = "40";
+
+    function changeImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+
+    function selectOffer(qty, price) {
+      selectedQty = qty;
+      selectedPrice = price;
+      
+      const o1 = document.getElementById('offer-1');
+      const o2 = document.getElementById('offer-2');
+      
+      if(qty === 1) {
+        o1.className = "border-2 border-theme bg-orange-50/20 rounded-xl p-3 text-center cursor-pointer relative";
+        o2.className = "border border-gray-200 rounded-xl p-3 text-center cursor-pointer relative";
+      } else {
+        o2.className = "border-2 border-theme bg-orange-50/20 rounded-xl p-3 text-center cursor-pointer relative";
+        o1.className = "border border-gray-200 rounded-xl p-3 text-center cursor-pointer relative";
+      }
+    }
+
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn').forEach(b => {
+        b.className = "size-btn border border-gray-200 px-3 py-1.5 rounded-lg text-sm font-bold";
+      });
+      btn.className = "size-btn border-2 border-theme text-theme px-3 py-1.5 rounded-lg text-sm font-bold";
+      selectedSizeValue = btn.innerText;
+    }
+
+    function handleOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const city = document.getElementById('city').value;
+      const address = document.getElementById('address').value;
+
+      // إرسال الطلب مباشرة إلى واتساب الخاص بك كمثال:
+      const myWhatsAppNumber = "212600000000"; // غير هذا برقمك
+      const message = `طلب جديد:%0A- الاسم: ${name}%0A- الهاتف: ${phone}%0A- المدينة: ${city}%0A- العنوان: ${address}%0A- المقاس: ${selectedSizeValue}%0A- العرض: ${selectedQty} زوج بـ ${selectedPrice} درهم`;
+
+      window.open(`https://wa.me/${myWhatsAppNumber}?text=${message}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
